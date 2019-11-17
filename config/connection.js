@@ -2,23 +2,22 @@
 
 
 const mysql = require("mysql");
-connection = mysql.createConnection({
-    host:"localhost",
-    user:"root",
-    password: "25Million",
-    database: "burgers_db"
+
+if (process.env.burgers_db){
+    
+    connection = mysql.createConnection(process.env.burgers_db);
+}else{
+    connection = mysql.createConnection({
+        host:"localhost",
+        user:"root",
+        password: "******",
+        database: "burgers_db"
 });
+}
 
 
 //the shows terminal that we are connect to mysql by responding with an id (treadid)
-connection.connect(function(err){
-    if (err){
-        console.error("error connecting"+ err.stack);
-        return;
-    }
-    console.log("connected as id"+ connection.treadId);
-});
-
+connection.connect()
 
 
 

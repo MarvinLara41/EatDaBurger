@@ -6,7 +6,7 @@ var exphbs = require("express-handlebars");
 
 
 var app = express();
-var PORT = process.env.PORT || 3000;
+var PORT = process.env.PORT || 8081;
 
 
 //the static file allows for express to find the path to the folder that contains the documents that will be used
